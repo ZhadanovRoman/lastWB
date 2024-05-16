@@ -1,0 +1,11 @@
+.timer__container {
+    padding: 0 32px 32px 32px;
+    height: 123px;
+    width: inherit;
+    overflow: hidden;
+    background-color: white;
+}
+
+.timer__header {
+    height: 62%;
+}

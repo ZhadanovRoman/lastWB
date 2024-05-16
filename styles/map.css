@@ -1,0 +1,16 @@
+.map__container {
+    padding: 0 32px 32px 32px;
+    height: 568px;
+    width: inherit;
+    overflow: hidden;
+    background-color: white;
+}
+
+.map__header {
+    height: 10%;
+}
+
+.spinner-border {
+    margin-top: 15%;
+    margin-left: 50%;
+}
