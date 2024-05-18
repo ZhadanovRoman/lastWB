@@ -1,38 +1,28 @@
-
-
-let interval;
 const contentContainer = document.querySelector('.content__container');
 
 const activityFn = () => {
-    contentContainer.innerHTML = accord;
-
+    if(contentContainer)contentContainer.innerHTML = accord;
+    
 };
 
 const mapFn = () => {
-    contentContainer.innerHTML = map;
+    if(contentContainer)contentContainer.innerHTML = map;
     initMap();
-
 };
 
 const timerFn = () => {
-    contentContainer.innerHTML = timer;
-
-
+    if(contentContainer)contentContainer.innerHTML = timer;
 };
 
 const timerOn = () => {
-
     const getTime = () => new Date().getTime();
     const startTime = JSON.parse(sessionStorage.getItem('startTime'));
-
     interval = setInterval(() => {
-
         const timer = getTime() - startTime
         const totalSeconds = Math.floor(timer / 1000);
         const hours = Math.floor(totalSeconds / 3600);
         const minutes = Math.floor((totalSeconds % 3600) / 60);
         const seconds = totalSeconds % 60;
-
         if (location.hash === LINK.TIMER) {
             const timerDiplay = document.querySelector('.timer__display');
             timerDiplay.innerHTML = `${hours[0] >= 10 ? hours : '0' + hours}:${minutes >= 10 ? minutes : '0' + minutes}:${seconds >= 10 ? seconds : '0' + seconds}`
@@ -42,18 +32,14 @@ const timerOn = () => {
 }
 
 const linksBtn = document.querySelectorAll('.header__page');
-
 linksBtn.forEach(el => {
     el.addEventListener('click', (e) => {
         linksBtn.forEach(el => {
             el.parentNode.classList.remove('header__link-active')
         })
-
         e.preventDefault();
         el.parentNode.classList.add('header__link-active')
-
-        if (e.currentTarget.tagName !== 'A') return;
-
+       
         const state = {
             page: e.currentTarget.getAttribute('href')
         };
@@ -65,9 +51,6 @@ linksBtn.forEach(el => {
 
 const renderPage = (link) => {
     switch (link) {
-        case LINK.HOME:
-            activityFn();
-            break;
         case LINK.MAP:
             mapFn();
             break;
@@ -98,7 +81,7 @@ function initMap() {
 }
 
 window.onpopstate = () => {
-    renderPage(hash);
+    renderPage(location.hash);
 };
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -15,14 +15,6 @@ const timer = `
                 </div>
         `
 
-        /*
-         <span class="timer__hours">00</span>
-                            :
-                        <span class="timer__minutes">00</span>
-                            :
-                        <span class="timer__seconds">00</span>
-        
-        */
 
 
 
