@@ -21,39 +21,24 @@ const timerFn = () => {
 };
 
 const timerOn = () => {
-    let secondsCount = JSON.parse(sessionStorage.getItem('seconds')) || 0;
-    let minutesCount = JSON.parse(sessionStorage.getItem('minutes')) || 0;
-    let hoursCount = JSON.parse(sessionStorage.getItem('hours')) || 0;
+
+    const getTime = () => new Date().getTime();
+    const startTime = JSON.parse(sessionStorage.getItem('startTime'));
 
     interval = setInterval(() => {
-        secondsCount++;
-        if (secondsCount === 60) {
-            minutesCount++;
-            secondsCount = 0;
-            if (minutesCount === 60) {
-                hoursCount++;
-                minutesCount = 0;
-                if (hoursCount === 24) {
-                    hoursCount = 0;
-                }
-            }
-        }
 
-        sessionStorage.setItem('seconds', JSON.stringify(secondsCount));
-        sessionStorage.setItem('minutes', JSON.stringify(minutesCount));
-        sessionStorage.setItem('hours', JSON.stringify(hoursCount));
+        const timer = getTime() - startTime
+        const totalSeconds = Math.floor(timer / 1000);
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
 
         if (location.hash === LINK.TIMER) {
-            let secondsTab = document.querySelector('.timer__seconds');
-            secondsTab.textContent = secondsCount >= 10 ? secondsCount : '0' + secondsCount;
-
-            let minutesTab = document.querySelector('.timer__minutes');
-            minutesTab.textContent = minutesCount >= 10 ? minutesCount : '0' + minutesCount;
-
-            let hoursTab = document.querySelector('.timer__hours');
-            hoursTab.textContent = hoursCount >= 10 ? hoursCount : '0' + hoursCount;
+            const timerDiplay = document.querySelector('.timer__display');
+            timerDiplay.innerHTML = `${hours[0] >= 10 ? hours : '0' + hours}:${minutes >= 10 ? minutes : '0' + minutes}:${seconds >= 10 ? seconds : '0' + seconds}`
         }
     }, 1000);
+
 }
 
 const linksBtn = document.querySelectorAll('.header__page');
@@ -117,7 +102,9 @@ window.onpopstate = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    if (!JSON.parse(sessionStorage.getItem('startTime'))) {
+        sessionStorage.setItem('startTime', JSON.stringify(new Date().getTime()));
+    }
     renderPage(location.hash);
     timerOn();
     selectedPage();

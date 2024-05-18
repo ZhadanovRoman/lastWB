@@ -10,16 +10,19 @@ const timer = `
                         </div>
                     </div>
                     <div class="timer__block ">
-                        <span class="timer__hours">00</span>
-                        :
-                        <span class="timer__minutes">00</span>
-                        :
-                        <span class="timer__seconds">00</span>
+                    <span class="timer__display">00:00:00</span>
                     </div>
                 </div>
         `
 
-
+        /*
+         <span class="timer__hours">00</span>
+                            :
+                        <span class="timer__minutes">00</span>
+                            :
+                        <span class="timer__seconds">00</span>
+        
+        */
 
 
 
