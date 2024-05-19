@@ -1,0 +1,126 @@
+.content__container {
+    background-color: #f1f1f2;
+
+}
+
+.accordion-item {
+    border: none;
+    box-shadow: none;
+}
+
+.accord-main-body {
+    padding: 0 24px 24px 24px;
+}
+
+.accordion-item:last-of-type,
+.accordion-item:first-of-type,
+.accordion-item:last-of-type>.accordion-header .accordion-button,
+.accordion-item:first-of-type>.accordion-header .accordion-button {
+    border-radius: 0;
+    border: none;
+}
+
+.accordion-button:not(.collapsed):after {
+    background-image: var(--bs-accordion-btn-icon);
+}
+
+.accordion-button:not(.collapsed) {
+  
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: #505050;
+    border: none;
+
+}
+.content__main-img{
+    width: 100%;
+}
+.content__right-avatar {
+    background-color: white;
+
+}
+
+.content__right {
+    padding-left: 24px;
+}
+.content__avatar-img{
+    margin-bottom: 10px;
+}
+.content__right-name{
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-weight: 400;
+    color: #505050;
+    text-transform:capitalize;
+}
+.content__right-stat{
+    margin-bottom: 15px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    color: #8F8F8F;
+}
+.accord-nav-button {
+    padding: 9px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+}
+.content__right-links {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+.accord-nav-body {
+    border-top: .5px solid #D3D8DE ;
+}
+
+.accord-nav-ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.accord-nav-item {
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 400;
+
+}
+
+.accord-nav-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.accord-nav-item:nth-child(4) {
+    padding-bottom: 10px;
+    border-bottom: .5px solid #D3D8DE;
+}
+
+
+
+.accord-nav-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+.accord-nav-txtArea {
+    height: 68px;
+}
+
+@media (max-width: 768px) {
+    .content__container{
+        flex-direction: column;
+    }
+    .content__right{
+        padding-left: 0;
+    }
+ }

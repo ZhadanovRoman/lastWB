@@ -1,0 +1,17 @@
+{
+  "homepage": "https://ZhadanovRoman.github.io/BeeBee",
+  "name": "testWB",
+  "description": "",
+  "dev": "./src/index.html parcel",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "deploy": "gh-pages -d .",
+    "build": "parcel build ./src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
